@@ -1,0 +1,46 @@
+#include <time.h>
+#include <stdlib.h>
+#include "stdio.h"
+
+void quicksort(int *arr, int p, int q);
+
+int main() {
+  srand(time(NULL));
+  int i, n = 30, arr[n];
+  
+  for (i = 0; i < n; i++) {
+    arr[i] = rand() % 10 + 1;
+    printf("%i ", arr[i]);
+  }
+  
+  quicksort(arr, 0, n - 1);
+  
+  printf("\n");
+  for (i = 0; i < n; i++) {
+    printf("%i ", arr[i]);
+  }
+  
+  return 0;
+}
+
+void quicksort(int *arr, int p, int q) {
+  int i, j, v, t;
+  
+  v = arr[(p + q) / 2];
+  i = p;
+  j = q;
+  do {
+    while (arr[i] < v) i++;
+    while (arr[j] > v) j--;
+    if (i <= j) {
+      t = arr[i];
+      arr[i] = arr[j];
+      arr[j] = t;
+      i++;
+      j--;
+    }
+  }
+  while (i < j);
+  if (j > p) quicksort(arr, p, j);
+  if (i < q) quicksort(arr, i, q);
+}
