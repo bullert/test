@@ -1,0 +1,28 @@
+ int Max_element_indeks(int n)
+   {
+     int max = 0;
+     for (int i = 1; i < n; i++)
+       if (t[i] > t[max])
+         max = i;
+     return max;
+   }
+
+  void Selection_sort(int n)
+  {
+    for (int i = n; i >= 2; i--)
+    {
+      int max = Max_element_indeks(i);
+      if (max != i - 1)
+        swap(t[i - 1], t[max]);
+    }
+  }
+
+void selection_sort(int n, int t[])
+{
+   int i, j, k;
+   for(i=0; i<n; i++) {
+      k=i;
+      for(j=i+1; j<n; j++) if(t[j]<t[k]) k=j;
+      swap(t[k], t[i]);
+   }
+}
