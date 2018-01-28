@@ -1,0 +1,20 @@
+#include "stdio.h"
+
+int main(void) {
+  int n, m, j, i = 0;
+  scanf("%i", &n);
+  int arr[n];
+  //printf("%i", n);
+  j = n;
+  while (j--) {
+    scanf("%i ", &arr[i]);
+    i++;
+  }
+  scanf("%i", &m);
+  for (i = 0; i < m; i++) {
+    if (i < n) printf("%i ", arr[i]);
+    else printf("EMPTY ");
+    
+  }
+  return 0;
+}
